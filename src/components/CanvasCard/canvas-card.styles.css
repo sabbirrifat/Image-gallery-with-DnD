@@ -1,0 +1,118 @@
+.canvas-image-container {
+  position: relative;
+  margin: 25px;
+
+}
+
+.canvas-image-container.active {
+  z-index: 50;
+}
+
+.canvas-image-card {
+  width: 400px;
+  height: 250px;
+  object-fit: contain;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.canvas-image-card img {
+  width: 100%;
+}
+
+/* IMAGE SETTINGS */
+
+.image-options {
+  width: 112px;
+  height: 38px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4a5257;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.image-settings {
+  position: relative;
+  border-right: 1px solid white;
+}
+
+.image-settings.active::before {
+  content: "";
+  position: absolute;
+  left: 35%;
+  bottom: -24px;
+  border: 10px solid #4a5257;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.image-settings,
+.image-delete {
+  padding: 5px 20px;
+}
+
+.fa-cog,
+.fa-trash {
+  color: white;
+}
+
+/*  POP MODEL */
+
+.pop-model {
+  width: 300px;
+  height: 310px;
+  position: absolute;
+  z-index: 100;
+  top: 33%;
+  left: -12%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 14px 40px 0px rgba(15, 44, 71, 0.3);
+  -webkit-box-shadow: 0px 14px 40px 0px rgba(15, 44, 71, 0.3);
+  -moz-box-shadow: 0px 14px 40px 0px rgba(15, 44, 71, 0.3);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.model-line-break {
+  border: 1px solid #4a5257;
+  opacity: 0.2;
+}
+
+.model-options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.model-options p {
+  margin: 0 25px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #a1a6aa;
+  font-weight: 600;
+}
+
+.model-options .active {
+  color: #4a5257;
+}

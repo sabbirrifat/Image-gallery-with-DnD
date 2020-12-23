@@ -1,0 +1,29 @@
+.model-image-change {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.model-image-change .preview-image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.model-image-change .change-photo {
+    color: #35AEF2;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 16px auto;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+.model-image-change .preview-image img {
+    width: 100%;
+}

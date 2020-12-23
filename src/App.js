@@ -1,25 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { connect } from "react-redux";
+import Media from "./components/Media/Media";
+import Canvas from "./components/Canvas/Canvas";
+import PopAlert from "./components/PopAlert/PopAlert";
+import { fetchCardsSatrtAsync } from "./redux/media/media-action";
+import { updateAlert, clearStates } from "./redux/canvas/canvas-action";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchCardsSatrtAsync()
+  }
+
+  checkAlertStatus = (alertMessage) => {
+    if (alertMessage) {
+      setTimeout(() => {
+        this.props.updateAlert(null);
+      }, 1500);
+    }
+  };
+
+  render() {
+    const {
+      mediaCards,
+      isFetching,
+      popModelStatus,
+      alertMessage,
+      imageReplaceFrom,
+      clearStates,
+    } = this.props;
+
+
+    this.checkAlertStatus(alertMessage);
+    console.log('is fetching', isFetching);
+
+    return (
+      <div id="App">
+        
+        <div className="media-panel">
+          { isFetching
+            ? <div className="loader">
+                <div className="loader-inner"></div>
+            </div>
+            : <Media cards={mediaCards} /> 
+         
+          }
+          
+          
+        </div>
+
+        <div className="canvas">
+          <Canvas />
+
+          {/******** Canvas Pop Over ********/}
+
+          { imageReplaceFrom || popModelStatus 
+            ? (
+              <div
+                className={`canvas-popover ${imageReplaceFrom ? "black" : "white"}`}
+                onClick={clearStates}
+              ></div>
+              ) : null }
+
+        </div>
+        { alertMessage ? <PopAlert /> : null }
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = ({ media, canvas }) => ({
+  mediaCards: media.mediaCardList,
+  isFetching: media.isFetching,
+  alertMessage: canvas.alertMessage,
+  imageReplaceFrom: canvas.imageReplaceFrom,
+  popModelStatus: canvas.popModelStatus
+
+  
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchCardsSatrtAsync: () => dispatch(fetchCardsSatrtAsync()),
+  updateAlert: (message) => dispatch(updateAlert(message)),
+  clearStates: () => dispatch(clearStates())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
