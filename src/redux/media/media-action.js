@@ -9,17 +9,16 @@ export const fetchCardsSuccess = (cards) => ({
   payload: cards
 });
 
-export const fetchCardsSatrtAsync = () => {
-  return (dispatch) => {
-    dispatch(fetchCardsStart);
+export const fetchCardsSatrtAsync = () => async (dispatch) => {
+  dispatch(fetchCardsStart());
 
-    fetch(cardsAPI)
-      .then(data => data.json())
-      .then(cards => dispatch(fetchCardsSuccess(cards)));
-  };
+  const response = await fetch(cardsAPI);
+  const cards = await response.json()
+  dispatch(fetchCardsSuccess(cards));
 };
 
+
 export const imageChangeButtonsStatus = (status) => ({
-    type: "IMAGE_CHANGE_BUTTONS",
-    payload: status
+  type: "IMAGE_CHANGE_BUTTONS",
+  payload: status
 })

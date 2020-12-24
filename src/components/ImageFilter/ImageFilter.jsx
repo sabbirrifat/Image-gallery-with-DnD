@@ -8,7 +8,6 @@ import contrastIcon from "../../assets/contrast.svg";
 import { connect } from "react-redux";
 import { updateFilters } from "../../redux/canvas/canvas-action";
 
-
 class ImageFilter extends Component {
   constructor() {
     super();
@@ -20,6 +19,18 @@ class ImageFilter extends Component {
     };
   }
 
+  componentDidMount() {
+    const { card } = this.props;
+    if (card?.filters) {
+      this.setState({
+        saturation: card?.saturation,
+        blur: card?.blur,
+        brightness: card?.brightness,
+        contrast: card?.contrast,
+      });
+    }
+  }
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -28,7 +39,7 @@ class ImageFilter extends Component {
 
   handleFilters = () => {
     const filterValues = {
-      char_id: this.props.cardId,
+      char_id: this.props.card.char_id,
       saturation: this.state.saturation,
       blur: this.state.blur,
       brightness: this.state.brightness,

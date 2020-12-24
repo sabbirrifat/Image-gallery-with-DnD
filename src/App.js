@@ -41,7 +41,9 @@ class App extends Component {
         <div className="media-panel">
           { isFetching
             ? <div className="loader">
-                <div className="loader-inner"></div>
+                <div className="loader-inner">
+                  <div className="loader-inner"></div>
+                </div>
             </div>
             : <Media cards={mediaCards} /> 
          

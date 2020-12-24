@@ -13,6 +13,7 @@ const FilterInput = ({ name, icon, value, handleChange }) => {
         type="range"
         min="0"
         max="100"
+        data-testid={name}
         value={value}
         onChange={handleChange}
       />

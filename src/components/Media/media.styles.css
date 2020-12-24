@@ -53,7 +53,7 @@
   border: none;
   border-radius: 8px;
   outline: none;
-  font-family: "Roboto", sans-serif;
+  cursor: pointer;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;

@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd";
 import { ItemType } from "../../utils/items";
 import "./media-card.styles.css";
 
-const MediaCard = ({ card, isCardSelected, updateMediaStatus, replaceImageTarget,}) => {
+const MediaCard = ({ card, isCardSelected, updateMediaStatus, replaceImageTarget}) => {
 
   const [{ isDragging }, drag] = useDrag({
     item: {
@@ -21,6 +21,7 @@ const MediaCard = ({ card, isCardSelected, updateMediaStatus, replaceImageTarget
         <div
           className={`image-card ${
             card?.char_id === replaceImageTarget?.char_id ? "selected" : ""}`}
+          data-testid="image-card"
         >
           <img
             onClick={() => {
@@ -45,4 +46,5 @@ const MediaCard = ({ card, isCardSelected, updateMediaStatus, replaceImageTarget
     </>
   );
 };
+
 export default MediaCard;

@@ -1,6 +1,8 @@
 .canvas-image-container {
   position: relative;
-  margin: 25px;
+  width: 30%;
+  margin: 20px;
+  z-index: 1;
 
 }
 
@@ -9,9 +11,8 @@
 }
 
 .canvas-image-card {
-  width: 400px;
-  height: 250px;
-  object-fit: contain;
+  width: 100%;
+  height: 230px;
   background-color: transparent;
   position: relative;
   overflow: hidden;
@@ -23,7 +24,20 @@
 }
 
 .canvas-image-card img {
+  z-index: -1;
   width: 100%;
+}
+
+.blank-image-placeholder{
+  width: 100%;
+  height: 230px;
+  border: 2px dashed #DDE2E8;
+  background: #FCFCFC;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 /* IMAGE SETTINGS */
@@ -65,6 +79,7 @@
 .image-settings,
 .image-delete {
   padding: 5px 20px;
+  cursor: pointer;
 }
 
 .fa-cog,
@@ -116,3 +131,42 @@
 .model-options .active {
   color: #4a5257;
 }
+
+
+/* /* /* RESPONSIVE STYLE */
+
+@media screen and (max-width: 1750px) {
+  .canvas-image-container{
+   
+    width: 27%;
+  }
+  .blank-image-placeholder{
+    width: 27%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .canvas-image-container{
+   width: 40%;
+  }
+  .canvas-image-card {
+    height: 150px;
+  }
+  .blank-image-placeholder{
+    width: 40%;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .canvas-image-container{
+   width: 100%;
+  }
+  .canvas-image-card {
+    height: 80px;
+  }
+  .blank-image-placeholder{
+    width: 100%;
+    height: 80px;
+  }
+} 

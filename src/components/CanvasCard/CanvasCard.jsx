@@ -6,7 +6,14 @@ import blankImage from "../../assets/blank-image.png";
 import ImageChange from "../ImageChange/ImageChange";
 import ImageFilter from "../ImageFilter/ImageFilter";
 
-const CanvasCard = ({card,index,moveCard,handleDelete,popModelStatus,changePopModelStatus}) => {
+const CanvasCard = ({
+  card,
+  index,
+  moveCard,
+  handleDelete,
+  popModelStatus,
+  changePopModelStatus,
+}) => {
   const ref = useRef(null);
   const [optionSwitcher, setOptionSwitcher] = useState("image-change");
   const [isShown, setIsShown] = useState(false);
@@ -29,21 +36,20 @@ const CanvasCard = ({card,index,moveCard,handleDelete,popModelStatus,changePopMo
       }
       moveCard(dragIndex, hoverIndex);
       item.index = hoverIndex;
-    }
-
+    },
   });
 
   const [{ isDragging }, drag] = useDrag({
     item: { type: ItemType.CANVAS_CARD, index },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
-    })
+    }),
   });
 
   drag(drop(ref));
 
   const createFilterStyle = () => ({
-    filter: `blur(${card?.blur}px) brightness(${card?.brightness}%) contrast(${card?.contrast}%) saturate(${card?.saturation}%)`
+    filter: `blur(${card?.blur}px) brightness(${card?.brightness}%) contrast(${card?.contrast}%) saturate(${card?.saturation}%)`,
   });
 
   return (
@@ -55,11 +61,12 @@ const CanvasCard = ({card,index,moveCard,handleDelete,popModelStatus,changePopMo
       onMouseLeave={() => (popModelStatusCheck ? null : setIsShown(false))}
     >
       <div className="canvas-image-card" ref={ref}>
-        { isShown && !isDragging ? (
+        {isShown && !isDragging ? (
           <div className="image-options">
             <div
               className={`image-settings ${
-                popModelStatusCheck ? "active" : ""}`}
+                popModelStatusCheck ? "active" : ""
+              }`}
               onClick={() => {
                 popModelStatusCheck
                   ? changePopModelStatus(null)
@@ -72,45 +79,51 @@ const CanvasCard = ({card,index,moveCard,handleDelete,popModelStatus,changePopMo
             <div className="image-delete" onClick={() => handleDelete(card)}>
               <i className="fas fa-trash"></i>
             </div>
-
           </div>
-        ) : null }
+        ) : null}
 
-        <img
-          src={ isDragging ? blankImage : card.img }
-          style={ card?.filters ? createFilterStyle() : { filter: "none" } }
-          alt="poster"
-        />
+        {isDragging ? (
+          <div className="blank-image-placeholder"></div>
+        ) : (
+          <img
+            src={isDragging ? blankImage : card.img}
+            style={
+              card?.filters && !isDragging
+                ? createFilterStyle()
+                : { filter: "none" }
+            }
+            alt="poster"
+          />
+        )}
       </div>
 
-      { popModelStatusCheck ? (
+      {popModelStatusCheck ? (
         <div className="pop-model">
           <div className="model-options">
             <p
               onClick={() => setOptionSwitcher("image-change")}
-              className={ optionSwitcher === "image-change" ? "active" : "" }
+              className={optionSwitcher === "image-change" ? "active" : ""}
             >
               Image
             </p>
             <p
               onClick={() => setOptionSwitcher("image-filter")}
-              className={ optionSwitcher === "image-filter" ? "active" : "" }
+              className={optionSwitcher === "image-filter" ? "active" : ""}
             >
               Filter
             </p>
           </div>
           <div className="model-line-break"></div>
 
-          { optionSwitcher === "image-change" ? (
+          {optionSwitcher === "image-change" ? (
             <ImageChange card={card} />
           ) : optionSwitcher === "image-filter" ? (
-            <ImageFilter cardId={card?.char_id} />
+            <ImageFilter card={card} />
           ) : (
             ""
           )}
-
         </div>
-      ) : null }
+      ) : null}
     </div>
   );
 };

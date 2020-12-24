@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   mediaCardList: null,
-  isFetching: true,
+  isFetching: false,
   isImageChangeButtons: false,
 };
 
