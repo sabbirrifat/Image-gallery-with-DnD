@@ -36,7 +36,6 @@ const MediaCard = ({ card, isCardSelected, updateMediaStatus, replaceImageTarget
         <div className="image-card" ref={drag}>
           
           <img
-            className={isDragging ? "media-card-dragging" : ""}
             src={card.img}
             alt="poster"
           />

@@ -1,40 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pop Alert should match snapshot 1`] = `
+exports[`Filter Input Test create a snapshop 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="pop-alert"
+        class="filter"
       >
         <div
-          class="alert-icon"
+          class="slider-left"
         >
-          <i
-            class="fas fa-exclamation"
+          <img
+            alt=""
+            src="https://test.com/123.jpg"
           />
         </div>
-        <p>
-          this is a test warning
-        </p>
+        <input
+          data-testid="blur"
+          max="100"
+          min="0"
+          name="blur"
+          type="range"
+          value="20"
+        />
+        <div
+          class="slider-right"
+        >
+          20 %
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="pop-alert"
+      class="filter"
     >
       <div
-        class="alert-icon"
+        class="slider-left"
       >
-        <i
-          class="fas fa-exclamation"
+        <img
+          alt=""
+          src="https://test.com/123.jpg"
         />
       </div>
-      <p>
-        this is a test warning
-      </p>
+      <input
+        data-testid="blur"
+        max="100"
+        min="0"
+        name="blur"
+        type="range"
+        value="20"
+      />
+      <div
+        class="slider-right"
+      >
+        20 %
+      </div>
     </div>
   </div>,
   "debug": [Function],

@@ -1,40 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pop Alert should match snapshot 1`] = `
+exports[`Canvas Card Test create a snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="pop-alert"
+        class="canvas-image-container "
+        data-testid="canvas-card"
       >
         <div
-          class="alert-icon"
+          class="canvas-image-card"
+          draggable="true"
         >
-          <i
-            class="fas fa-exclamation"
+          <img
+            alt="poster"
+            src="https://test.com/123.jpg"
+            style="filter: none;"
           />
         </div>
-        <p>
-          this is a test warning
-        </p>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="pop-alert"
+      class="canvas-image-container "
+      data-testid="canvas-card"
     >
       <div
-        class="alert-icon"
+        class="canvas-image-card"
+        draggable="true"
       >
-        <i
-          class="fas fa-exclamation"
+        <img
+          alt="poster"
+          src="https://test.com/123.jpg"
+          style="filter: none;"
         />
       </div>
-      <p>
-        this is a test warning
-      </p>
     </div>
   </div>,
   "debug": [Function],

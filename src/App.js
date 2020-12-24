@@ -13,13 +13,13 @@ class App extends Component {
     this.props.fetchCardsSatrtAsync()
   }
 
-  checkAlertStatus = (alertMessage) => {
+  /* checkAlertStatus = (alertMessage) => {
     if (alertMessage) {
       setTimeout(() => {
         this.props.updateAlert(null);
       }, 1500);
     }
-  };
+  }; */
 
   render() {
     const {
@@ -32,8 +32,7 @@ class App extends Component {
     } = this.props;
 
 
-    this.checkAlertStatus(alertMessage);
-    console.log('is fetching', isFetching);
+    //this.checkAlertStatus(alertMessage);
 
     return (
       <div id="App">

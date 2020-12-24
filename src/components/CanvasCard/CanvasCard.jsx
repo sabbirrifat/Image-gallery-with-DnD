@@ -59,10 +59,11 @@ const CanvasCard = ({
       }`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => (popModelStatusCheck ? null : setIsShown(false))}
+      data-testid="canvas-card"
     >
       <div className="canvas-image-card" ref={ref}>
         {isShown && !isDragging ? (
-          <div className="image-options">
+          <div className="image-options" data-testid="image-options">
             <div
               className={`image-settings ${
                 popModelStatusCheck ? "active" : ""
@@ -98,7 +99,7 @@ const CanvasCard = ({
       </div>
 
       {popModelStatusCheck ? (
-        <div className="pop-model">
+        <div className="pop-model" data-testid="pop-model">
           <div className="model-options">
             <p
               onClick={() => setOptionSwitcher("image-change")}

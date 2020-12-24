@@ -4,7 +4,7 @@ import "./pop-alert.styles.css";
 
 class PopAlert extends Component {
   render() {
-    const { alertMessage, changeText } = this.props;
+    const { alertMessage} = this.props;
 
     return (
       <div className="pop-alert">
@@ -21,8 +21,4 @@ const mapStateToProps = ({ canvas }) => ({
   alertMessage: canvas.alertMessage,
 });
 
-const mapDispatchToProps = dispatch => ({
-  changeText: (message) => dispatch({ type: 'UPDATE_ALERT', payload: message}) 
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PopAlert);
+export default connect(mapStateToProps)(PopAlert);
