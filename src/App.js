@@ -5,21 +5,13 @@ import Media from "./components/Media/Media";
 import Canvas from "./components/Canvas/Canvas";
 import PopAlert from "./components/PopAlert/PopAlert";
 import { fetchCardsSatrtAsync } from "./redux/media/media-action";
-import { updateAlert, clearStates } from "./redux/canvas/canvas-action";
+import { clearStates } from "./redux/canvas/canvas-action";
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchCardsSatrtAsync()
   }
-
-  checkAlertStatus = (alertMessage) => {
-    if (alertMessage) {
-      setTimeout(() => {
-        this.props.updateAlert(null);
-      }, 1500);
-    }
-  };
 
   render() {
 
@@ -32,8 +24,6 @@ class App extends Component {
       clearStates,
     } = this.props;
 
-
-    this.checkAlertStatus(alertMessage);
 
     return (
       <div id="App">
@@ -82,7 +72,6 @@ const mapStateToProps = ({ media, canvas }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCardsSatrtAsync: () => dispatch(fetchCardsSatrtAsync()),
-  updateAlert: (message) => dispatch(updateAlert(message)),
   clearStates: () => dispatch(clearStates())
 });
 

@@ -1,24 +1,33 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { updateAlert } from "../../redux/canvas/canvas-action";
 import "./pop-alert.styles.css";
 
-class PopAlert extends Component {
-  render() {
-    const { alertMessage } = this.props;
+const PopAlert = ({ alertMessage, updateAlert }) => {
+  useEffect(() => {
+    if (alertMessage) {
+      setTimeout(() => {
+        updateAlert(null);
+      }, 1500);
+    }
+  }, [alertMessage, updateAlert]);
 
-    return (
-      <div className="pop-alert">
-        <div className="alert-icon">
-          <i className="fas fa-exclamation"></i>
-        </div>
-        <p>{alertMessage}</p>
+  return (
+    <div className="pop-alert">
+      <div className="alert-icon">
+        <i className="fas fa-exclamation"></i>
       </div>
-    );
-  }
-}
+      <p>{alertMessage}</p>
+    </div>
+  );
+};
 
 const mapStateToProps = ({ canvas }) => ({
   alertMessage: canvas.alertMessage,
 });
 
-export default connect(mapStateToProps)(PopAlert);
+const mapDispatchToProps = (dispatch) => ({
+  updateAlert: (message) => dispatch(updateAlert(message)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PopAlert);

@@ -11,6 +11,7 @@ Object {
       >
         <img
           alt="poster"
+          class=""
           src="https://test.com/123.jpg"
         />
       </div>
@@ -23,6 +24,7 @@ Object {
     >
       <img
         alt="poster"
+        class=""
         src="https://test.com/123.jpg"
       />
     </div>
