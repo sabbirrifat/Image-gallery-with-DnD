@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./image-change.styles.css";
 import { connect } from "react-redux";
-import { imageReplaceFrom,selectCard } from "../../redux/canvas/canvas-action";
+import { imageReplaceFrom, selectCard } from "../../redux/canvas/canvas-action";
 
 class ImageChange extends Component {
   handleChangePhoto = (card) => {
@@ -23,7 +23,6 @@ class ImageChange extends Component {
         >
           Change Photo
         </button>
-
       </div>
     );
   }

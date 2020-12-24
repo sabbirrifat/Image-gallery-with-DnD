@@ -12,6 +12,12 @@ const mediaReducer = (state = INITIAL_STATE, action) => {
         isFetching: true,
       };
 
+    case "FETCH_STOP":
+      return {
+        ...state,
+        isFetching: false,
+      };
+
     case "UPDATE_MEDIA_CARDS":
       return {
         ...state,

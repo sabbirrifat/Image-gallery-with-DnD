@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import "./canvas-card.styles.css";
 import { useDrag, useDrop } from "react-dnd";
 import { ItemType } from "../../utils/items";
-import blankImage from "../../assets/blank-image.png";
 import ImageChange from "../ImageChange/ImageChange";
 import ImageFilter from "../ImageFilter/ImageFilter";
 
@@ -87,7 +86,7 @@ const CanvasCard = ({
           <div className="blank-image-placeholder"></div>
         ) : (
           <img
-            src={isDragging ? blankImage : card.img}
+            src={card.img}
             style={
               card?.filters && !isDragging
                 ? createFilterStyle()

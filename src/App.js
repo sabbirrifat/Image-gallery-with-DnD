@@ -13,15 +13,16 @@ class App extends Component {
     this.props.fetchCardsSatrtAsync()
   }
 
-  /* checkAlertStatus = (alertMessage) => {
+  checkAlertStatus = (alertMessage) => {
     if (alertMessage) {
       setTimeout(() => {
         this.props.updateAlert(null);
       }, 1500);
     }
-  }; */
+  };
 
   render() {
+
     const {
       mediaCards,
       isFetching,
@@ -32,23 +33,23 @@ class App extends Component {
     } = this.props;
 
 
-    //this.checkAlertStatus(alertMessage);
+    this.checkAlertStatus(alertMessage);
 
     return (
       <div id="App">
-        
+
         <div className="media-panel">
-          { isFetching
+          {isFetching
             ? <div className="loader">
-                <div className="loader-inner">
-                  <div className="loader-inner"></div>
-                </div>
+              <div className="loader-inner">
+                <div className="loader-inner"></div>
+              </div>
             </div>
-            : <Media cards={mediaCards} /> 
-         
+            : <Media cards={mediaCards} />
+
           }
-          
-          
+
+
         </div>
 
         <div className="canvas">
@@ -56,16 +57,16 @@ class App extends Component {
 
           {/******** Canvas Pop Over ********/}
 
-          { imageReplaceFrom || popModelStatus 
+          {imageReplaceFrom || popModelStatus
             ? (
               <div
                 className={`canvas-popover ${imageReplaceFrom ? "black" : "white"}`}
                 onClick={clearStates}
               ></div>
-              ) : null }
+            ) : null}
 
         </div>
-        { alertMessage ? <PopAlert /> : null }
+        { alertMessage ? <PopAlert /> : null}
       </div>
     );
   }
@@ -77,8 +78,6 @@ const mapStateToProps = ({ media, canvas }) => ({
   alertMessage: canvas.alertMessage,
   imageReplaceFrom: canvas.imageReplaceFrom,
   popModelStatus: canvas.popModelStatus
-
-  
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,35 +1,35 @@
 .pop-alert {
-    position: absolute;
-    bottom: 50px;
-    right: 80px;
-    width: 400px;
-    height: 80px;
-    display: flex;
-    z-index: 100;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.58);
-    -webkit-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.58);
-    -moz-box-shadow: 0px 0px 35px 4px rgba(0,0,0,0.58);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+  position: absolute;
+  bottom: 50px;
+  right: 80px;
+  width: 400px;
+  height: 80px;
+  display: flex;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.58);
+  -webkit-box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.58);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .pop-alert .alert-icon {
-    text-align: center;
-    flex-basis: 15%;
-    font-size: 26px;
-    color: #8c959c;
+  text-align: center;
+  flex-basis: 15%;
+  font-size: 26px;
+  color: #8c959c;
 }
 
-.pop-alert p{
-    flex-basis: 85%;
-    font-size: 16px;
-    color: #777e83;
+.pop-alert p {
+  flex-basis: 85%;
+  font-size: 16px;
+  color: #777e83;
 }

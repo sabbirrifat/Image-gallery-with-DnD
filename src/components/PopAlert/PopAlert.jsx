@@ -4,7 +4,7 @@ import "./pop-alert.styles.css";
 
 class PopAlert extends Component {
   render() {
-    const { alertMessage} = this.props;
+    const { alertMessage } = this.props;
 
     return (
       <div className="pop-alert">

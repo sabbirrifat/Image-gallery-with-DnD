@@ -1,5 +1,5 @@
 import React from "react";
-import './filter-input.styles.css';
+import "./filter-input.styles.css";
 
 const FilterInput = ({ name, icon, value, handleChange }) => {
   return (

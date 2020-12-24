@@ -18,6 +18,16 @@ const mockUpdateMediaStatus = (card) => {
 describe("Media Card Test", () => {
   afterEach(cleanup);
 
+  it("create a snapshot", () => {
+    expect(
+      render(
+        <DndProvider backend={HTML5Backend}>
+          <MediaCard card={mockCard} isCardSelected={false} />
+        </DndProvider>
+      )
+    ).toMatchSnapshot();
+  });
+
   it("should match the image src", () => {
     render(
       <DndProvider backend={HTML5Backend}>
